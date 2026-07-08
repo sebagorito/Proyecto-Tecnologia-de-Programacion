@@ -1,0 +1,61 @@
+A la hora de querer implementar un nuevo nivel, se debe crear en la carpeta que contiene
+este documento, un archivo de texto tal que su nombre sea "level#", siendo el # el
+numero del nivel que se desee asignar. Se da por hecho que en la carpeta van a haber 
+niveles sin numeros repetidos y con numeros consecutivos. No se asume una cantidad fija.
+// Varias partes del nivel van a estar pregeneradas, como por ejemplo, a //4 bloques// 
+del limite izquierdo, vamos a tener a Mario asignado necesariamente, y al final del nivel
+se autocompletara con la bandera respectiva. //
+Se va a dejar una plantilla apta para ser copiada con las caracteristicas esperadas que
+tenga el formato del nivel, por ejemplo, 18 lineas de cielo y recien la 19° va a ser la 
+que dictamine el largo del nivel. Va a estar completa con "#" para los lugares donde se 
+quiere que haya suelo, y con 'V' cada vez que haya vacios. // Se espera a su vez, que 
+esta linea sea copiada y pegada 3 veces por debajo de la misma, por una cuestion de
+prolijidad //
+El nivel cuando sea creado, se espera que Mario tenga lugar para poder empezar a moverse
+facilmente. Y al final del nivel van a tener que haber algunas 15 lineas libres para 
+generar la bandera final. 
+Para poder generar correctamente la ubicacion de los bloques, el renglon debe estar
+completado con espacios antes del bloque, que representarian el "cielo". Luego, se puede
+colocar libremente cualquier entidad de la lista de entidades [1], que se encuentra
+aqui debajo. Cada caracter representa la ubicacion exacta en la que se genera cada 
+entidad. Dejamos tambien otro texto [2] con aclaraciones del funcionamiento de la
+generacion de ciertas entidades particulares.
+
+
+[1] Lista de entidades:
+	M : Ubicacion Mario al inicio del nivel //Auto-generated
+	f : Flag //Auto-generated
+
+Plataformas:
+	# : Floor
+	C : Solid Block
+	B : Solid Brick
+	? : Lucky Block
+	P : Pipe
+	$ : Coin Block 
+	V : Void
+
+Enemigos:
+	G : Goomba
+	K : Koopa Troopa
+	A : Piranha Plant
+	L : Lakitu
+	Z : Buzzy Beetle
+
+Power up:
+	% : Coin 
+	= : Super Mush
+	F : Fire Flower
+	E : Green Mush
+	& : Star
+
+[2] Aclaraciones:
+
+El bloque P : Pipe, se autogerena a partir del bloque ubicado en el archivo de texto, 
+	un bloque hacia la derecha, y se autocompleta hasta abajo, la altura necesaria 
+	para completar la altura hasta el piso.
+Para generar una tuberia con una A : Piranha Plant dentro, que entre y salga de la misma,
+	se debe colocar el caracter recien mencionado, asociado al enemigo
+El ? : Lucky Block es un bloque pregunta con una moneda dentro. 
+Cada Power-Up que normalmente se encuentra en un Lucky Block, se genera enunciando el
+	espacio con el power up que se desea colocar dentro del bloque.
